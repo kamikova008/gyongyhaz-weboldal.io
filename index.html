@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<title>Gyöngyház Weboldal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background: #f8f6f2; /* krém szín */
+  color: #2f3e3e;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Fejléc */
+header {
+  background-color: #98d9b6; /* menta */
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+/* Menü */
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav button {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+nav button:hover {
+  background: white;
+  color: #98d9b6;
+}
+
+/* Kiemelt gomb: Időpontfoglalás */
+nav button.book {
+  background: white;
+  color: #98d9b6;
+  border: none;
+}
+
+nav button.book:hover {
+  background: #f0f0f0;
+}
+
+/* Tartalom szakaszok */
+section {
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Arch képkeret */
+.arch {
+  width: 250px;
+  height: 300px;
+  margin: 20px auto;
+  background: #dff5f2;
+  border-radius: 120px 120px 20px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Blog kártyák */
+.card {
+  width: 250px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* Gyöngyszem dekorációk */
+.pearl-deco {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle at 30% 30%, white, #e0f0ea);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  z-index: 0;
+  animation: float 8s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px);}
+  50% { transform: translateY(-15px);}
+}
+
+/* Liliom virágok */
+.lily {
+  position: absolute;
+  width: 80px;
+  height: auto;
+  z-index: 0;
+  opacity: 0.8;
+}
+.lily.left { top: 50px; left: -30px; }
+.lily.right { bottom: 50px; right: -30px; }
+
+/* Gombok a főoldalon */
+button.main {
+  padding: 12px 25px;
+  border-radius: 25px;
+  background: #7ed6c2;
+  color: white;
+  border: none;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+button.main:hover {
+  background: #5bc0aa;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>GYÖNGYHÁZ</h1>
+  <nav>
+    <button>Rólam</button>
+    <button>Szolgáltatások</button>
+    <button>Kapcsolat</button>
+    <button class="book">Időpontfoglalás</button>
+  </nav>
+</header>
+
+<!-- Dekoráció: Gyöngyszemek -->
+<img src="lily-left.png" class="lily left" alt="Fehér liliom">
+<img src="lily-right.png" class="lily right" alt="Fehér liliom">
+
+<section>
+  <h2>Rólam</h2>
+  <div class="arch"></div>
+  <p>Tanúsított masszőr vagyok, aki a nyugodt, gyógyító élményekre koncentrál.</p>
+</section>
+
+<section>
+  <h2>Szolgáltatások</h2>
+  <p>Masszázs kezelések széles választéka, relaxáció és stresszoldás.</p>
+</section>
+
+<section>
+  <h2>Blog</h2>
+  <div class="card">A masszázs stresszcsökkentő hatásai</div>
+  <div class="card">Hogyan lazítsuk el az izmainkat</div>
+</section>
+
+<section>
+  <h2>Kapcsolat</h2>
+  <p>Email: info@gyongyhaz.hu</p>
+</section>
+
+<script>
+// Gyöngyszemek random generálása
+for (let i = 0; i < 20; i++) {
+  const pearl = document.createElement('div');
+  pearl.className = 'pearl-deco';
+  pearl.style.top = Math.random() * window.innerHeight + 'px';
+  pearl.style.left = Math.random() * window.innerWidth + 'px';
+  pearl.style.width = 20 + Math.random()*20 + 'px';
+  pearl.style.height = pearl.style.width;
+  document.body.appendChild(pearl);
+}
+</script>
+
+</body>
+</html>
